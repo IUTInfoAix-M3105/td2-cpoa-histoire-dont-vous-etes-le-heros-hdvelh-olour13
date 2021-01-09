@@ -4,60 +4,80 @@
  * Template étudiants
  */
 package pracHDVELH;
-
+import java.net.IDN;
 import java.util.Scanner;
 
+import jdk.jfr.Unsigned;
 import myUtils.ErrorNaiveHandler;
+import org.w3c.dom.Node;
 
 /**
  * @author prost
- *
+ * @contributor LOURGUI Ousama
  */
 public class Event extends NodeMultiple {
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
 
-	/**
-	 * @return the playerAnswer
-	 */
-	public String getPlayerAnswer() {
-		/* TO BE COMPLETED */
+	private Scanner Scan;
+	private GUIManager gui;
+	private int id;
+	private int chosenPath;
+	private String answer;
+
+	public Event () {
+		this.gui = new GUIManager();
+		this.id= nextId++;
+	}
+	public Event (GUIManager gui, String data) {
+		super(data);
+		this.gui = gui;
+		id = ++lastId;
+		chosenPath = -1;
 	}
 
 	/**
-	 * @param playerAnswer the playerAnswer to set
+	 * @return the answer
 	 */
-	public void setPlayerAnswer(String playerAnswer) {
-		/* TO BE COMPLETED */
+	public String getAnswer() {
+		return answer;
+	}
+
+	/**
+	 * @param answer the answer to set
+	 */
+	public void setAnswer(String answer) {
+
+		this.answer = answer;
 	}
 
 	/**
 	 * @return the reader
 	 */
 	public Scanner getReader() {
-		/* TO BE COMPLETED */
+		return this.Scan;
 	}
 
 	/**
 	 * @param reader the reader to set
 	 */
 	public void setReader(Scanner reader) {
-		/* TO BE COMPLETED */
+		this.Scan = reader;
 	}
 
 	/**
 	 * @return the chosenPath
 	 */
 	public int getChosenPath() {
-		/* TO BE COMPLETED */
+		return this.chosenPath;
 	}
 
 	/**
 	 * @param chosenPath the chosenPath to set
 	 */
 	public void setChosenPath(int chosenPath) {
-		/* TO BE COMPLETED */
+		this.chosenPath = chosenPath;
 	}
 
 	/* Methods */
@@ -65,7 +85,9 @@ public class Event extends NodeMultiple {
 	 * @see pracHDVELH.NodeMultiple#getData()
 	 */
 	public String getData() {
-		/* TO BE COMPLETED */
+		if (super.getData() != null)
+			return (String) super.getData();
+		return null;
 	}
 
 	/**
@@ -73,15 +95,14 @@ public class Event extends NodeMultiple {
 	 * @param data
 	 */
 	public void setData(String data) {
-		/* TO BE COMPLETED */
+		super.setData(data);
 	}
 
 	/**
 	 * @see pracHDVELH.NodeMultiple#getDaughter(int)
 	 */
-	@Override
 	public Event getDaughter(int i) {
-		/* TO BE COMPLETED */
+		return (Event) super.getDaughter(i);
 	}
 
 	/**
@@ -90,33 +111,30 @@ public class Event extends NodeMultiple {
 	 * @param i
 	 */
 	public void setDaughter(Event daughter, int i) {
-		/* TO BE COMPLETED */
+		super.setDaughter(daughter, i);
 	}
 
 	/**
 	 * @return the gui
 	 */
 	public GUIManager getGui() {
-		/* TO BE COMPLETED */
+		return this.gui;
 	}
 
 	/**
 	 * @param gui the gui to set
 	 */
 	public void setGui(GUIManager gui) {
-		/* TO BE COMPLETED */
+		this.gui = gui;
 	}
 
 	/**
 	 * @return the id
 	 */
 	public int getId() {
-		/* TO BE COMPLETED */
+		return this.getId();
 	}
 
-	/* Methods */
-	/* TO BE COMPLETED */
-	}
 }
 
 // eof
