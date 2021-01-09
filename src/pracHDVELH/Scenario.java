@@ -7,15 +7,29 @@ package pracHDVELH;
 
 /**
  * @author prost
- *
+ * @contributor LOURGUI Ousama
  */
+
 public class Scenario {
 	private static final String MSG_EMPTY_SCENARIO = "Sorry, no scenario was found.";
 	private static final String MSG_FINALE = "That's all folks!";
 	private Event head;
 	private GUIManager gui;
 
-	/* TO BE COMPLETED */
+
+	public Event getHead() {
+		return this.head;
+	}
+	public GUIManager getGUI() {
+		return this.gui;
+	}
+	public void setGUI(GUIManager gui)
+	{
+		this.gui = gui;
+	}
+	public void setHead(Event head) {
+		this.head = head;
+	}
 
 	/* MAIN */
 	public static void main(String[] args) {
