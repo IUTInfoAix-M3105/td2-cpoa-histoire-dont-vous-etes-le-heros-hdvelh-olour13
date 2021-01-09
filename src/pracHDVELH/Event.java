@@ -134,7 +134,6 @@ public class Event extends NodeMultiple {
 	public int getId() {
 		return this.getId();
 	}
-
 }
 
 // eof
